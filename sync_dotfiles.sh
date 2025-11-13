@@ -1,30 +1,29 @@
 #!/bin/bash
 
 HOME_CONFIG=$HOME/.config
-REPO_CONFIG=$(dirname "$0")/.config
+REPO_DIR=$(dirname "$0")/.config
+CONFIGS_TO_SYNC=(
+    "i3" \
+    "polybar" \
+    "picom.conf" \
+    "alacritty" \
+    "dunst" \
+    "nvim" \
+    "rofi" \
+    "hypr" \
+    "waybar"
+)
 
-echo "Syncing to $REPO_CONFIG"
+echo "Syncing to $REPO_DIR"
 
 echo "Syncing .zshrc"
 rsync -a $HOME/.zshrc ./
 
-echo "Syncing alacritty"
-rsync -a $HOME_CONFIG/alacritty $REPO_CONFIG
-
-echo "Syncing i3"
-rsync -a $HOME_CONFIG/i3 $REPO_CONFIG
-
-echo "Syncing nvim"
-rsync -a $HOME_CONFIG/nvim $REPO_CONFIG
-
-echo "Syncing polybar"
-rsync -a $HOME_CONFIG/polybar $REPO_CONFIG
-
-echo "Syncing rofi"
-rsync -a $HOME_CONFIG/rofi $REPO_CONFIG
-
-echo "Syncing picom"
-rsync -a $HOME_CONFIG/picom.conf $REPO_CONFIG
+for ITEM in ${CONFIGS_TO_SYNC[@]};
+do
+    echo "Copying ${HOME_CONFIG}/$ITEM";
+    rsync -av ${HOME_CONFIG}/$ITEM ${REPO_DIR}/
+done
 
 echo "All operations complete"
 
