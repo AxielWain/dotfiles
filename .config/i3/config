@@ -37,8 +37,8 @@ exec --no-startup-id mpg123 ~/.sounds/startup.mp3 &
 exec --no-startup-id picom -b --config ~/.config/picom.conf
 exec --no-startup-id polybar -r
 exec --no-startup-id lxpolkit
+exec --no-startup-id dunst
 exec_always --no-startup-id feh --no-fehbg --bg-fill --randomize ~/wallpapers/*
-exec_always --no-startup-id rclone mount GDrive: ~/remote/gdrive
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -46,8 +46,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --nostartup-id brightnessctl +5%
+bindsym XF86MonBrightnessDown exec --nostartup-id brightnesscrtl 5%-
 
 bindsym Print exec --no-startup-id flameshot gui -p /home/axwain/Pictures/screenshots/
 
@@ -265,9 +265,10 @@ assign [class="Chromium"] $ws4
 assign [class="Thunar"] $ws5
 
 # Scratchpad section. tddo-app has been replaced by Super Productivity
-#for_window [class="tddo-app"] move scratchpad
-#bindsym $mod+grave [class="tddo-app"] scratchpad show
-#exec --no-startup-id tddo-app 
+for_window [class="superProductivity"] move scratchpad
+for_window [class="superProductivity"] floating enable
+bindsym $mod+grave [class="superProductivity"] scratchpad show
+exec --no-startup-id superproductivity
 
 for_window[instance="Godot_Editor"] floating enable
-for_window[instance="Godot_Engine"] floating enable,
+for_window[instance="Godot_Engine"] floating enable
