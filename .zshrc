@@ -38,4 +38,13 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/nvm/init-nvm.sh
-eval "$(ssh-agent -s)" > /dev/null
+#eval "$(ssh-agent -s)" > /dev/null
+
+xrdb ~/.Xresources
+
+export EMSDK_QUIET=1
+source "$HOME/dev/emsdk/emsdk_env.sh"
+
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
