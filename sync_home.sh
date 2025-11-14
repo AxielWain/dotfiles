@@ -9,7 +9,7 @@ echo "Copying .zshrc"
 rsync -a $SCRIPT_ROOT/.zshrc $HOME/
 
 echo "Copying config"
-rsync -a $CONFIG_DIR $HOME/
+rsync -av $CONFIG_DIR $HOME/
 
 echo "Finished copying dotfiles"
 
