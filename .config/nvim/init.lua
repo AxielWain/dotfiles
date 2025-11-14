@@ -1,62 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = " "
-
-require("lazy").setup({
-    {
-	    "nvim-telescope/telescope.nvim",
-	    branch = "0.1.x",
-	    dependencies = {
-	        "nvim-lua/plenary.nvim"
-	    }
-    },
-    {
-	    "navarasu/onedark.nvim"
-    },
-    {
-	    "nvim-treesitter/nvim-treesitter",
-	    build = ":TSUpdate",
-	    config = function ()
-	        local configs = require("nvim-treesitter.configs")
-	        configs.setup({
-		        ensure_installed = {
-                    "c",
-                    "cpp",
-                    "css",
-                    "go",
-                    "html",
-                    "javascript",
-                    "json",
-                    "lua",
-                    "typescript",
-                    "vim",
-                    "vimdoc"
-                },
-		        sync_install = false,
-		        highlight = { enable = true },
-		        indent = { enable = true },
-	        })
-	    end
-    },
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
-    {'L3MON4D3/LuaSnip'}
-})
+require("config.lazy")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -64,76 +6,11 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" } )
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" } )
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 
-local lsp_zero = require('lsp-zero')
+require("config.lsp")
 
-lsp_zero.on_attach(function(client, bufnr)
-    -- see :help lsp-zero-keybindings
-    -- to learn the available actions
-    lsp_zero.default_keymaps({buffer = bufnr})
-end)
-
-require('mason').setup({})
-require('mason-lspconfig').setup({
-    ensure_installed = {
-	"clangd",
-	"cssls",
-	"emmet_ls",
-	"eslint",
-	"gopls",
-    "haxe_language_server",
-	"html",
-	"jsonls",
-	"tsserver",
-	"lua_ls",
-	"marksman",
-	"sqlls",
-	"yamlls"
-    },
-    handlers = {
-        lsp_zero.default_setup,
-    },
-})
-
-local lspconfig = require('lspconfig')
-
-lspconfig.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using
-        -- (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {
-          'vim',
-          'require'
-        },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-
-require('onedark').setup({
-    style = 'warm',
-    transparent = true,
-    term_colors = true
-})
-
-require('onedark').load()
-
+vim.g.have_nerd_font = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -147,7 +24,6 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 
 vim.keymap.set('n', '<leader>W', ':w<CR>', {})
-vim.keymap.set('n', '<leader>q', ':q<CR>', {})
 vim.keymap.set('n', '<leader>Q', ':q!<CR>', {})
 vim.keymap.set('n', '<leader>E', ':Ex<CR>', {})
 vim.keymap.set('n', '<leader>ws', ':sp<CR>', {})
@@ -158,3 +34,9 @@ vim.keymap.set('n', '<leader>wk', ':winc k<CR>', {})
 vim.keymap.set('n', '<leader>wl', ':winc l<CR>', {})
 vim.keymap.set('n', '<leader>nh', ':nohl<CR>', {})
 
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
