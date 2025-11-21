@@ -3,11 +3,9 @@
 HOME_CONFIG=$HOME/.config
 REPO_DIR=$(dirname "$0")/.config
 CONFIGS_TO_SYNC=(
-    "i3" \
-    "polybar" \
-    "picom.conf" \
     "alacritty" \
     "dunst" \
+    "helix" \
     "nvim" \
     "rofi" \
     "hypr" \
