@@ -18,8 +18,8 @@ family = "Hack Nerd Font Mono"
 style = "Regular"
 
 [window]
-opacity = 0.9
+opacity = 0.95
 
 [general]
-import = ["/home/axwain/.config/alacritty/themes/pm.toml"]
+import = ["/home/axwain/.config/alacritty/themes/palenight.toml"]
 
