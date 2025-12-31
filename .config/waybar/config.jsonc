@@ -34,7 +34,6 @@
         "orientation": "horizontal",
         "modules": [
             "tray",
-            "network",
             "hyprland/language"
         ]
     },
