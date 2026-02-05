@@ -231,20 +231,20 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: rgba(116, 67, 32, 0.487);
+    background-color: rgba(102, 41, 0, 0.755);
     border-radius: 6px;
-    color: rgba(197, 197, 197, 0.789);
+    color: rgba(234, 234, 234, 0.936);
     margin: 4px;
 }
 
 #idle_inhibitor:hover {
-    background-color: rgba(146, 102, 76, 0.687);
+    background-color: rgba(178, 125, 1, 0.755);
     color: #fff;
 }
 
 #idle_inhibitor.activated {
-    background-color: rgba(133, 131, 36, 0.895);
-    color: #fff;
+    background-color: rgba(254, 224, 115, 0.896);
+    color: #2e2e2e;
 }
 
 #language {
