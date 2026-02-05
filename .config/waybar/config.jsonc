@@ -48,15 +48,42 @@
         ]
     },
     "hyprland/workspaces": {
-        "format": "<sub>{windows}</sub>",
-        "window-rewrite-default": "",
+        "format": "{windows}",
+        "window-rewrite-default": "󰣆",
         "window-rewrite": {
             "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
             "class<firefox>": "", // Windows whose classes are "firefox"
             "title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
             "alacritty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
             "code": "󰨞",
-            "class<chromium>": ""
+            "class<chromium>": "",
+            "class<blender>": "",
+            "class<thunar>": "",
+            "class<krita>": "",
+            "class<org.keepassxc.KeePassXC>": "",
+            "class<obsidian": "",
+            "class<discord>": "",
+            "class<superProductivity>": "",
+            "class<com.obsproject.Studio>": "󰑋",
+            "class<org.speedcrunch.speedcrunch>": "",
+            "class<blueman-manager>": "󰂯",
+            "class<Aseprite>": "",
+            "class<Pixelorama>": "",
+            "class<voidsprite>": "",
+            "class<org.mapeditor.tiled>": "󱓙",
+            "class<org.shotcut.Shotcut>": "󰙮",
+            "class<vlc>": "󰕼",
+            "class<org.inkscape.Inkscape>": "",
+            "class<viewnior>": "",
+            "class<Godot>": "",
+            "class<com.github.johnfactotum.Foliate>": "",
+            "class<org.strawberrymusicplayer.strawberry>": "",
+            "class<kicad>": "",
+            "class<org.gnome.font-viewer>": "",
+            "class<org.kde.ark>": "",
+            "class<org.pulseaudio.pavucontrol>": "󱄠",
+            "class<org.gnome.baobab>": "",
+            "class<GParted>": ""
         },
         "special-visible-only": true
     },

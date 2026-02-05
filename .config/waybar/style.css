@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0);
-    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
     color: #ffffff;
     margin: 0 4px;
     transition-property: background-color;
@@ -35,7 +35,7 @@ button {
 
 #workspaces button {
     background-color: rgba(32, 30, 30, 0.5);
-    border-radius: 50%;
+    border-radius: 4px;
     border: 0;
     color: #ffffff;
     margin: 0 2px;
