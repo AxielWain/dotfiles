@@ -23,3 +23,8 @@ opacity = 0.95
 [general]
 import = ["/home/axwain/.config/alacritty/themes/palenight.toml"]
 
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
