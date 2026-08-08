@@ -112,7 +112,8 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#a0a0a0"
+    frame_color = "#89b4fa"
+    highlight = "#89b4fa"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -342,36 +343,40 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#ffffff"
-	highlight = "#722ae6, #e4b5cb"
-    timeout = 20
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+	#highlight = "#722ae6, #e4b5cb"
+    timeout = 15
     # Icon for notifications with low urgency
     #default_icon = dialog-information
     script = $HOME/.config/dunst/playsound.sh
 
 [urgency_normal]
-    background = "#222222"
-    foreground = "#ffffff"
-	frame_color = "#5e5086"
-	highlight = "#722ae6, #e4b5cb"
-    timeout = 20
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+	#frame_color = "#5e5086"
+	#highlight = "#722ae6, #e4b5cb"
+    timeout = 15
     override_pause_level = 30
     # Icon for notifications with normal urgency
     default_icon = dialog-information
     script = $HOME/.config/dunst/playsound.sh
 
 [urgency_critical]
-    background = "#222222"
-    foreground = "#ffffff"
-    frame_color = "#d54e53"
-	highlight = "#d54e53, #f0f0f0"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#fab387"
+	#highlight = "#d54e53, #f0f0f0"
     timeout = 0
     override_pause_level = 60
     # Icon for notifications with critical urgency
     default_icon = dialog-warning
     script = $HOME/.config/dunst/playsound.sh
 
+[discord_notifications]
+    desktop_entry = "discord"
+    summary = "*"
+    timeout = 5
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #
