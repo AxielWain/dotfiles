@@ -2,9 +2,6 @@
 ---- SUBMAPS ----
 -----------------
 
--- Apps quick launch
-hl.bind(mainMod .. " + G", hl.dsp.submap("quicklaunch"))
-
 hl.define_submap("quicklaunch", function()
 
     -- Set keybinds
@@ -24,9 +21,6 @@ hl.define_submap("quicklaunch", function()
     hl.bind("Escape", hl.dsp.submap("reset"))
     hl.bind("Return", hl.dsp.submap("reset"))
 end)
-
--- Power Controls
-hl.bind(mainMod .. " + P", hl.dsp.submap("powercontrol"))
 
 hl.define_submap("powercontrol", function()
 

@@ -90,3 +90,9 @@ hl.bind("Print", hl.dsp.exec_cmd("grimblast --notify copysave area"))
 hl.bind("Shift_L + Alt_L + 4", hl.dsp.exec_cmd("grimblast --notify copysave area"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grimblast --notify copysave screen"))
 hl.bind("SUPER + SHIFT", hl.dsp.exec_cmd("grimblast --notify copysave active"))
+
+-- Apps quick launch
+hl.bind(mainMod .. " + G", hl.dsp.submap("quicklaunch"))
+
+-- Power Controls
+hl.bind(mainMod .. " + P", hl.dsp.submap("powercontrol"))
