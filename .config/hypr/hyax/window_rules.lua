@@ -58,7 +58,7 @@ hl.window_rule({
 
 hl.window_rule({
     name = "notetaking",
-    match = { class = "md.Obsidian" },
+    match = { class = "md.obsidian.Obsidian" },
 
     fullscreen = true,
     workspace = "special:notes silent",

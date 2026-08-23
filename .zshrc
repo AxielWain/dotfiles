@@ -49,6 +49,7 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 export PATH="$PATH:$HOME/.local/bin"
+export SSH_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
